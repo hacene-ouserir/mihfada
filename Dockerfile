@@ -8,35 +8,25 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-# Enable required Apache modules
+# Enable Apache modules required by your .htaccess
 RUN a2enmod \
     rewrite \
     headers \
     mime \
     deflate
-# Enable Brotli if available (optional)
-RUN a2enmod brotli || true
-# Enable Apache rewrite
-RUN a2enmod rewrite
 # Set the working directory
 WORKDIR /var/www/html
-# Copy Composer files first (improves Docker cache)
+# Copy Composer files first for Docker layer caching
 COPY composer.json composer.lock ./
-# Install PHP dependencies
+# Install production PHP dependencies
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
-    --no-interaction
+    --no-interaction \
+    --prefer-dist
 # Copy the rest of the application
 COPY . .
-# Configure Apache to serve the public directory
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-# Update the Apache configuration to use the new document root
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/sites-available/*.conf \
-    /etc/apache2/apache2.conf \
-    /etc/apache2/conf-available/*.conf
-# Set the ownership of the files to www-data user and group
+# Set ownership
 RUN chown -R www-data:www-data /var/www/html
-# Expose port 80 for the web server
+# Apache listens on port 80
 EXPOSE 80
