@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +9,25 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Hacene Ouserir | Portfolio">
   <meta property="og:description" content="Hacene Ouserir is a web developer specializing in modern websites and web applications. Explore his portfolio, latest projects, technical blog posts, and professional experience. Available for freelance work, collaboration, and consultations.">
-  <meta property="og:image" content="https://www.haceneouserir.me/assets/icons/icon_512x512.png">
+  <meta property="og:image" content="https://www.haceneouserir.me/public/assets/icons/icon_512x512.png">
   <meta property="og:url" content="https://www.haceneouserir.me">
   <meta property="og:type" content="website">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hacene Ouserir | Portfolio">
   <meta name="twitter:description" content="Hacene Ouserir is a web developer specializing in modern websites and web applications. Explore his portfolio, latest projects, technical blog posts, and professional experience. Available for freelance work, collaboration, and consultations.">
-  <meta name="twitter:image" content="https://www.haceneouserir.me/assets/icons/icon_512x512.png">
-
-  <title>Hacene Ouserir | Portfolio</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="twitter:image" content="https://www.haceneouserir.me/public/assets/icons/icon_512x512.png">
+  <title>Mihfada | Modern Portfolio</title>
+    <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/public/assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/icons/16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/icons/32x32.png">
   <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" href="/assets/icons/152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/180x180.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="/assets/icons/167x167.png">
+  <link rel="apple-touch-icon" href="/public/assets/icons/152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/assets/icons/180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/public/assets/icons/167x167.png">
   <!-- Manifest -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/public/manifest.json">
   <!-- Apply theme ASAP to prevent flash -->
   <script async>
     const root = document.documentElement;
@@ -63,7 +63,7 @@
     });
   </script>
   <!-- App CSS -->
-  <link rel="stylesheet" href="/css/app.min.css">
+  <link rel="stylesheet" href="/public/css/app.min.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $_ENV["GA_MEASUREMENT_ID"] ?? ""; ?>"></script>
   <script>

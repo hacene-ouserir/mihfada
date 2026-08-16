@@ -19,7 +19,7 @@
     </div>
     <div class="flex flex-col items-center mt-6 -mx-2">
         <a href="#hero" class="pal-border" aria-label="Hacene Ouserir's photo" title="Hacene Ouserir's photo">
-            <img class="object-cover w-24 h-24 rounded-full bg-white dark:bg-gray-900" src="/assets/images/ho.webp" alt="Hacene Ouserir's photo">
+            <img class="object-cover w-24 h-24 rounded-full bg-white dark:bg-gray-900" src="/public/assets/images/ho.webp" alt="Hacene Ouserir's photo">
         </a>
         <h4 class="mx-2 mt-2 text-lg text-gray-800 dark:text-gray-200">Hacene Ouserir</h4>
         <p class="mx-2 mt-1 text-sm text-gray-700 dark:text-gray-400">Web Developer</p>

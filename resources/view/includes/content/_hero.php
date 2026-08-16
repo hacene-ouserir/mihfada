@@ -8,11 +8,11 @@
       </h1>
       <div class="hero-desc pt-8">
         <a class="bg-capri hover:bg-capri-light p-3 xs:p-4 transition ease-in-out delay-75 duration-300 rounded-md" href="#bio" aria-label="Get started" title="Get started">Get Started!</a>
-        <a class="ml-2 hover:text-capri-light active:text-capri-light visited:text-gray-800 dark:visited:text-gray-400 transition ease-in-out delay-75 duration-300 underline underline-offset-4 text-sm xs:text-md" href="/assets/files/cvs/hacene_ouserir_cv_en.pdf" target="_blank" aria-label="Download my CV" title="Download my CV">Download my CV!</a>
+        <a class="ml-2 hover:text-capri-light active:text-capri-light visited:text-gray-800 dark:visited:text-gray-400 transition ease-in-out delay-75 duration-300 underline underline-offset-4 text-sm xs:text-md" href="/public/assets/files/cvs/hacene_ouserir_cv_en.pdf" target="_blank" aria-label="Download my CV" title="Download my CV">Download my CV!</a>
       </div>
     </div>
     <div class="hero-img lg:mx-auto lg:my-0 m-auto">
-      <img src="/assets/images/hero/coding.webp" alt="Coding" class="md:w-96 md:h-96 xs:w-80 xs:h-80 w-64 h-64 animate-bounce-slow">
+      <img src="/public/assets/images/hero/coding.webp" alt="Coding" class="md:w-96 md:h-96 xs:w-80 xs:h-80 w-64 h-64 animate-bounce-slow">
     </div>
   </div>
   <div class="hero-scroll-down w-full h-[25%] xs:h-[15%]">
