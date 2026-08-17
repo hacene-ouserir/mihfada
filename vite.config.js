@@ -4,23 +4,76 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { compression } from 'vite-plugin-compression2'
 
 export default defineConfig({
+  base: "/public/", // set base path for assets
   plugins: [
     // visualizer({
     //   filename: "bundle-report.html", // file saved in dist
     //   template: "treemap",            // "sunburst", "network", "treemap"
     //   open: true,                     // auto-open after build
     // }),
+    compression({
+      algorithms: [
+        'gzip',
+        'brotliCompress'
+      ],
+      ext: '.gz',
+      deleteOriginalAssets: false,
+
+      include: [
+        '**/*.js',
+        '**/*.css'
+      ],
+
+      exclude: [
+        '**/sw.js',
+        '**/workbox-*.js',
+        '**/manifest.json',
+        // Exclude images and other files from compression
+        '**/*.png',
+        '**/*.jpg',
+        '**/*.jpeg',
+        '**/*.webp',
+        '**/*.svg',
+        '**/*.ico',
+        '**/*.pdf',
+      ]
+    }),
+    compression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      deleteOriginalAssets: false,
+
+      include: [
+        '**/*.js',
+        '**/*.css'
+      ],
+
+      exclude: [
+        '**/sw.js',
+        '**/workbox-*.js',
+        '**/manifest.json',
+        // Exclude images and other files from compression
+        '**/*.png',
+        '**/*.jpg',
+        '**/*.jpeg',
+        '**/*.webp',
+        '**/*.svg',
+        '**/*.ico',
+        '**/*.pdf',
+      ]
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: false,
       filename: "sw.js",
       manifestFilename: "manifest.json",
       manifest: {
-        name: 'HO Portfolio',
-        short_name: 'HO',
+        name: 'Mihfada',
+        short_name: 'Mihfada',
         start_url: '/',
+        scope: '/',
         display: 'standalone',
-        description: "Hacene Ouserir's portfolio.",
+        description: "Modern portfolio app.",
         lang: 'en',
         direction: 'ltr',
         theme_color: '#00bfff',
@@ -28,43 +81,43 @@ export default defineConfig({
         orientation: 'any',
         icons: [
           {
-            src: '/assets/icons/48x48.png',
+            src: '/public/assets/icons/48x48.png',
             sizes: '48x48',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/72x72.png',
+            src: '/public/assets/icons/72x72.png',
             sizes: '72x72',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/96x96.png',
+            src: '/public/assets/icons/96x96.png',
             sizes: '96x96',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/144x144.png',
+            src: '/public/assets/icons/144x144.png',
             sizes: '144x144',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/192x192.png',
+            src: '/public/assets/icons/192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/assets/icons/256x256.png',
+            src: '/public/assets/icons/256x256.png',
             sizes: '256x256',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/384x384.png',
+            src: '/public/assets/icons/384x384.png',
             sizes: '384x384',
             type: 'image/png'
           },
           {
-            src: '/assets/icons/512x512.png',
+            src: '/public/assets/icons/512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
@@ -75,10 +128,8 @@ export default defineConfig({
         cacheId: 'ho',
         skipWaiting: true,
         clientsClaim: true,
-        globPatterns: ['**/*.{json,js,css,png,jpg,jpeg,webp,svg,ico,ttf,br,gz}'],
+        globPatterns: ['**/*.{json,js,css,png,jpg,jpeg,webp,svg,ico,ttf}'],
         globIgnores: [
-          '**/*.php',   // ignore PHP files
-          'sitemap.xml',   // ignore sitemap
           'assets/icons/*'   // ignore icons
         ],
         navigateFallback: undefined,
@@ -99,12 +150,6 @@ export default defineConfig({
         enabled: true
       }
     }),
-    compression({
-      algorithms: [
-        'gzip',
-        'brotliCompress'
-      ]
-    })
   ],
   // css: {
   // },

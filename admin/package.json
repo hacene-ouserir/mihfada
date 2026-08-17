@@ -1,0 +1,33 @@
+{
+  "name": "mihfada-admin-panel",
+  "version": "1.0.0",
+  "description": "Admin panel for Mihfada project.",
+  "main": "index.js",
+  "packageManager": "pnpm@10.26.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Hacene Ouserir"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.26",
+    "rollup-plugin-visualizer": "^7.0.1",
+    "tailwindcss": "^3.4.19",
+    "vite": "^7.3.6",
+    "vite-plugin-compression2": "^2.5.3"
+  },
+  "dependencies": {
+    "@alpinejs/persist": "^3.15.12",
+    "alpinejs": "^3.15.12",
+    "apexcharts": "^3.54.1",
+    "flatpickr": "^4.6.13",
+    "jsvectormap": "^1.7.0"
+  }
+}

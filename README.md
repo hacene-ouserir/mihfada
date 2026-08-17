@@ -1,2 +1,2 @@
-# Hacene Ouserir's personal website
-This project contains all the files of Hacene Ouserir website.
+# Mihfada
+Mihfada is a modern portfolio project, you can use as a starter kit when you begin to create your online portfolio.

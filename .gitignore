@@ -3,3 +3,4 @@
 /vendor
 /.env
 /fiveserver.config.js
+/admin/node_modules

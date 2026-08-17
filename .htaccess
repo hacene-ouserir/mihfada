@@ -1,0 +1,78 @@
+# Disable directory listing and MultiViews
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    #
+    # Serve pre-compressed Brotli assets when supported
+    #
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.+)\.(css|js)$ $1.$2.br [L]
+
+    #
+    # Otherwise serve pre-compressed Gzip assets
+    #
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.+)\.(css|js)$ $1.$2.gz [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+
+    # Preserve original MIME types
+    AddType text/css .css
+    AddType text/javascript .js
+    AddType application/javascript .mjs
+    AddType application/manifest+json .webmanifest
+    AddType application/json .json
+
+    # Compressed files keep the original MIME type
+    AddType text/css .css.gz .css.br
+    AddType text/javascript .js.gz .js.br
+
+    # Compression encodings
+    AddEncoding gzip .gz
+    AddEncoding br .br
+
+</IfModule>
+
+<IfModule mod_headers.c>
+
+    # Tell caches that content depends on Accept-Encoding
+    Header append Vary Accept-Encoding
+
+    # Correct headers for Brotli
+    <FilesMatch "\.(css|js)\.br$">
+        Header set Content-Encoding br
+    </FilesMatch>
+
+    # Correct headers for Gzip
+    <FilesMatch "\.(css|js)\.gz$">
+        Header set Content-Encoding gzip
+    </FilesMatch>
+
+    #
+    # Never serve the Service Worker compressed.
+    #
+    <Files "sw.js">
+        Header set Content-Type "application/javascript"
+    </Files>
+
+</IfModule>
+
+#
+# Dynamic compression for files without .br/.gz versions
+#
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE \
+        text/html \
+        text/plain \
+        text/css \
+        text/javascript \
+        application/javascript \
+        application/json \
+        application/xml \
+        image/svg+xml
+</IfModule>
