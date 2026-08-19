@@ -4,7 +4,7 @@ import colors from "tailwindcss/colors.js"
 export default {
   content: [
      './index.php',
-    './src/**/*.{php,js}'
+    './resources/**/*.{php,js}'
     ],
   darkMode: 'class',
   theme: {
